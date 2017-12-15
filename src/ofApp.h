@@ -50,4 +50,5 @@ public:
     
     Csound * csound;
 
+    int res;
 };

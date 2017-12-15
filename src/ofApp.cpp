@@ -23,18 +23,18 @@ void ofApp::setup(){
     magnitude.push_back(ofPolyline());
     points.setMode(OF_PRIMITIVE_POINTS);
     prmLine.setMode(OF_PRIMITIVE_LINES);
-    loadData("musical_cylinder_04_strm_02.csv");
+    loadData("musical_cylinder_04_strm_01.csv");
     
+    res = 3;
+    numOcs = poly.size() / res;
     
-    numOcs = 100; //poly.size() * 0.01;
+    renderDuration = 30; // se
+    setupCsound();
+    setupOrc();
+    setupSco();
+    startCsound();
     
-    renderDuration = 60 * 5; // 10 min
-    
-//    setupCsound();
-//    setupOrc();
-//    setupSco();
-//    startCsound();
-    
+    ofExit();
 }
 
 void ofApp::setupCsound(){
@@ -83,14 +83,25 @@ void ofApp::setupOrc(){
     
     string instr1_aOsc;
     
-    for( int i=0; i<numOcs; i++){
+    for(int i=0; i<numOcs; i++){
         int id = i+1;
         int octave = floor(i/8);
         double per = (float)i/numOcs;
-        double freq = 20000.0 - log10(numOcs-i+1)/log10(numOcs) * 20000.0;
-        string freqs = ofToString(freq);
-        string weight = "/"+ofToString(i%8+1);
-        string aOsc = mt::op_orc("aOsc"+to_string(id), "poscil", "kamp"+to_string(id)+weight, freqs, "giSine" );
+        double rate = 0.2 * 0.25;
+        double freq;
+        
+        if(i%4==0){
+            freq = pow((double)2, (double)(i-numOcs)*rate) * 22000.0 + 2;
+        }else if(i%4==1){
+            freq = pow((double)7, (double)(i-numOcs)*rate) * 22000.0 + 2;
+        }else if(i%4==2){
+            freq = pow((double)15, (double)(i-numOcs)*rate) * 22000.0 + 2;
+        }else if(i%4==3){
+            freq = pow((double)23, (double)(i-numOcs)*rate) * 22000.0 + 2;
+        }
+        
+        string freqs = ofToString(freq, 20);
+        string aOsc = mt::op_orc("aOsc"+to_string(id), "poscil", "kamp"+to_string(id), freqs, "giSine" );
         instr1_aOsc += aOsc;
     }
     
@@ -137,14 +148,7 @@ void ofApp::setupOrc(){
 
 void ofApp::setupSco(){
     
-    string sco = R"dlm(
-    
-    ;score
-    ;          freq
-    ;i 1 0 300  2.0439453125
-    i 1 0 300
-    
-    )dlm";
+    string sco = "i 1 0 " + ofToString(renderDuration) + "\n";
     
     cout << sco << endl;
     int r2 = csound->ReadScore(sco.c_str());
@@ -156,6 +160,7 @@ void ofApp::setupSco(){
 }
 
 void ofApp::startCsound(){
+    
     
     csound->Start();
     
@@ -172,6 +177,15 @@ void ofApp::startCsound(){
     bool init = false;
     int totalKFrame = sr * renderDuration / ksmps;
     int currentFrame = 0;
+    
+    double maxLen = -1;
+    for(int i=0; i<poly.size(); i++){
+        float len = poly[i].getPerimeter();
+        maxLen = MAX(maxLen, len);
+    }
+    double stepLen = maxLen / totalKFrame;
+    double currentLen = 0;
+    
     while ( csoundPerformKsmps(csound->GetCsound() ) == 0) {
     
         percent = (double)currentFrame/totalKFrame;
@@ -182,13 +196,24 @@ void ofApp::startCsound(){
             string chname = "camp" + to_string(f+1);
             csoundGetChannelPtr( csound->GetCsound(), &camp[f], chname.c_str(), CSOUND_INPUT_CHANNEL | CSOUND_CONTROL_CHANNEL );
             
-            glm::vec3 m = magnitude[f].getPointAtPercent(percent);
-            double amp = m.y * 0.0001;
+            //glm::vec3 m = magnitude[f*res].getPointAtPercent(percent);
+            
+            double amp;
+            if(currentLen>=poly[f*res].getPerimeter()){
+                double amp =0;
+            }else{
+                glm::vec3 p = poly[f*res].getPointAtLength(currentLen);
+                double thisPercent = currentLen / poly[f*res].getPerimeter();
+                glm::vec3 m = magnitude[f*res].getPointAtPercent(thisPercent);
+                amp = m.y * 0.000002;
+            }
+            
             if(init) amp = amp*0.0001 + prevAmp[f]*0.9999;
             *camp[f] = amp;
             prevAmp[f] = amp;
         }
         
+        currentLen += stepLen;
         init = true;
     }
 }
@@ -325,7 +350,7 @@ void ofApp::keyPressed(int key){
 }
 
 void ofApp::exit(){
-if(csound) csoundDestroy( csound->GetCsound() );
+    if(csound) csoundDestroy( csound->GetCsound() );
 }
 
 void ofApp::saveString( string str, filesystem::path path ){
