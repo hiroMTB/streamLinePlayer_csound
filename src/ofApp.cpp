@@ -25,7 +25,7 @@ void ofApp::setup(){
     prmLine.setMode(OF_PRIMITIVE_LINES);
     loadData("musical_cylinder_04_strm_01.csv");
     
-    res = 3;
+    res = 10;
     numOcs = poly.size() / res;
     
     renderDuration = 30; // se
@@ -78,29 +78,36 @@ void ofApp::setupOrc(){
         string kamp = mt::op_orc("kamp"+to_string(id), "chnget", "\"camp"+ to_string(id)+"\"");
         instr1_kamp += kamp;
     }
-    
     instr1_kamp += "\n";
+
+    string instr1_kfreq;
+    for( int i=0; i<numOcs; i++){
+        int id = i+1;
+        string kfreq = mt::op_orc("kfreq"+to_string(id), "chnget", "\"cfreq"+ to_string(id)+"\"");
+        instr1_kfreq += kfreq;
+    }
+    instr1_kfreq += "\n";
     
     string instr1_aOsc;
     
     for(int i=0; i<numOcs; i++){
         int id = i+1;
-        int octave = floor(i/8);
-        double per = (float)i/numOcs;
-        double rate = 0.2 * 0.25;
-        double freq;
-        
-        if(i%4==0){
-            freq = pow((double)2, (double)(i-numOcs)*rate) * 22000.0 + 2;
-        }else if(i%4==1){
-            freq = pow((double)7, (double)(i-numOcs)*rate) * 22000.0 + 2;
-        }else if(i%4==2){
-            freq = pow((double)15, (double)(i-numOcs)*rate) * 22000.0 + 2;
-        }else if(i%4==3){
-            freq = pow((double)23, (double)(i-numOcs)*rate) * 22000.0 + 2;
-        }
-        
-        string freqs = ofToString(freq, 20);
+//        int octave = floor(i/8);
+//        double per = (float)i/numOcs;
+//        double rate = 0.2 * 0.25;
+//        double freq;
+//        
+//        if(i%4==0){
+//            freq = pow((double)2, (double)(i-numOcs)*rate) * 22000.0 + 2;
+//        }else if(i%4==1){
+//            freq = pow((double)7, (double)(i-numOcs)*rate) * 22000.0 + 2;
+//        }else if(i%4==2){
+//            freq = pow((double)15, (double)(i-numOcs)*rate) * 22000.0 + 2;
+//        }else if(i%4==3){
+//            freq = pow((double)23, (double)(i-numOcs)*rate) * 22000.0 + 2;
+//        }
+//        string freqs = ofToString(freq, 20);
+        string freqs = "kfreq"+to_string(id);
         string aOsc = mt::op_orc("aOsc"+to_string(id), "poscil", "kamp"+to_string(id), freqs, "giSine" );
         instr1_aOsc += aOsc;
     }
@@ -132,8 +139,7 @@ void ofApp::setupOrc(){
     
     )dlm";
     
-    string orc = settings + gen + instr1_top + instr1_kamp + instr1_aOsc + instr1_mix + instr1_out;
-    
+    string orc = settings + gen + instr1_top + instr1_kamp + instr1_kfreq + instr1_aOsc + instr1_mix + instr1_out;
     
     int r1 = csound->CompileOrc( orc.c_str() );
     saveString( orc, ofToDataPath("orc_src.txt", true) );
@@ -161,16 +167,16 @@ void ofApp::setupSco(){
 
 void ofApp::startCsound(){
     
-    
     csound->Start();
     
     int loop = 0;
     
     MYFLT *camp[numOcs];
+    MYFLT *cfreq[numOcs];
     
-    vector<double> prevAmp;
-    
+    vector<double> prevAmp, prevFreq;
     prevAmp.assign(numOcs, 0);
+    prevFreq.assign(numOcs, 0);
     
     double percent = 0;
     
@@ -193,24 +199,42 @@ void ofApp::startCsound(){
         printf("writing %0.8f\n", percent*100.0);
         
         for( int f=0; f<numOcs; f++ ){
-            string chname = "camp" + to_string(f+1);
-            csoundGetChannelPtr( csound->GetCsound(), &camp[f], chname.c_str(), CSOUND_INPUT_CHANNEL | CSOUND_CONTROL_CHANNEL );
-            
+            string amp = "camp" + to_string(f+1);
+            csoundGetChannelPtr( csound->GetCsound(), &camp[f], amp.c_str(), CSOUND_INPUT_CHANNEL | CSOUND_CONTROL_CHANNEL );
+
+            string freq = "cfreq" + to_string(f+1);
+            csoundGetChannelPtr( csound->GetCsound(), &cfreq[f], freq.c_str(), CSOUND_INPUT_CHANNEL | CSOUND_CONTROL_CHANNEL );
+
             //glm::vec3 m = magnitude[f*res].getPointAtPercent(percent);
             
-            double amp;
+            double damp, dfreq;
             if(currentLen>=poly[f*res].getPerimeter()){
-                double amp =0;
+                damp =0;
+                dfreq = 0;
             }else{
                 glm::vec3 p = poly[f*res].getPointAtLength(currentLen);
-                double thisPercent = currentLen / poly[f*res].getPerimeter();
-                glm::vec3 m = magnitude[f*res].getPointAtPercent(thisPercent);
-                amp = m.y * 0.000002;
+
+                //double thisPercent = currentLen / poly[f*res].getPerimeter();
+                //glm::vec3 m = magnitude[f*res].getPointAtPercent(thisPercent);
+                
+                glm::vec2 yaxis(0,1);
+                glm::vec2 p2(p.x, p.y);
+                double length = glm::length(p2);
+                glm::vec2 p2n = glm::normalize(p2);
+                double angle = glm::orientedAngle(yaxis, p2n);
+                float angleRate = ofMap(angle, -TWO_PI, TWO_PI, 0, 100);
+                dfreq = pow(2, angleRate*0.2) + 20;
+                damp = length * 0.001;
             }
             
-            if(init) amp = amp*0.0001 + prevAmp[f]*0.9999;
-            *camp[f] = amp;
-            prevAmp[f] = amp;
+            if(init){
+                damp  = damp *0.0001 + prevAmp[f]*0.9999;
+                dfreq = dfreq*0.0001 + prevFreq[f]*0.9999;
+            }
+            *camp[f] = damp;
+            *cfreq[f] = dfreq;
+            prevAmp[f] = damp;
+            prevFreq[f] = dfreq;
         }
         
         currentLen += stepLen;

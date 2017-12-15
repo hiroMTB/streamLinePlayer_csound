@@ -1,0 +1,344 @@
+sr     = 48000
+ksmps  = 16
+nchnls = 2
+0dbfs  = 1.000000
+
+    
+    giSine    ftgen     0, 0, 2^16, 10, 1
+    
+    
+    
+    instr 1
+
+    kamp1 chnget "camp1"
+kamp2 chnget "camp2"
+kamp3 chnget "camp3"
+kamp4 chnget "camp4"
+kamp5 chnget "camp5"
+kamp6 chnget "camp6"
+kamp7 chnget "camp7"
+kamp8 chnget "camp8"
+kamp9 chnget "camp9"
+kamp10 chnget "camp10"
+kamp11 chnget "camp11"
+kamp12 chnget "camp12"
+kamp13 chnget "camp13"
+kamp14 chnget "camp14"
+kamp15 chnget "camp15"
+kamp16 chnget "camp16"
+kamp17 chnget "camp17"
+kamp18 chnget "camp18"
+kamp19 chnget "camp19"
+kamp20 chnget "camp20"
+kamp21 chnget "camp21"
+kamp22 chnget "camp22"
+kamp23 chnget "camp23"
+kamp24 chnget "camp24"
+kamp25 chnget "camp25"
+kamp26 chnget "camp26"
+kamp27 chnget "camp27"
+kamp28 chnget "camp28"
+kamp29 chnget "camp29"
+kamp30 chnget "camp30"
+kamp31 chnget "camp31"
+kamp32 chnget "camp32"
+kamp33 chnget "camp33"
+kamp34 chnget "camp34"
+kamp35 chnget "camp35"
+kamp36 chnget "camp36"
+kamp37 chnget "camp37"
+kamp38 chnget "camp38"
+kamp39 chnget "camp39"
+kamp40 chnget "camp40"
+kamp41 chnget "camp41"
+kamp42 chnget "camp42"
+kamp43 chnget "camp43"
+kamp44 chnget "camp44"
+kamp45 chnget "camp45"
+kamp46 chnget "camp46"
+kamp47 chnget "camp47"
+kamp48 chnget "camp48"
+kamp49 chnget "camp49"
+kamp50 chnget "camp50"
+kamp51 chnget "camp51"
+kamp52 chnget "camp52"
+kamp53 chnget "camp53"
+kamp54 chnget "camp54"
+kamp55 chnget "camp55"
+kamp56 chnget "camp56"
+kamp57 chnget "camp57"
+kamp58 chnget "camp58"
+kamp59 chnget "camp59"
+kamp60 chnget "camp60"
+kamp61 chnget "camp61"
+kamp62 chnget "camp62"
+kamp63 chnget "camp63"
+kamp64 chnget "camp64"
+kamp65 chnget "camp65"
+kamp66 chnget "camp66"
+kamp67 chnget "camp67"
+kamp68 chnget "camp68"
+kamp69 chnget "camp69"
+kamp70 chnget "camp70"
+kamp71 chnget "camp71"
+kamp72 chnget "camp72"
+kamp73 chnget "camp73"
+kamp74 chnget "camp74"
+kamp75 chnget "camp75"
+kamp76 chnget "camp76"
+kamp77 chnget "camp77"
+kamp78 chnget "camp78"
+kamp79 chnget "camp79"
+kamp80 chnget "camp80"
+kamp81 chnget "camp81"
+kamp82 chnget "camp82"
+kamp83 chnget "camp83"
+kamp84 chnget "camp84"
+kamp85 chnget "camp85"
+kamp86 chnget "camp86"
+kamp87 chnget "camp87"
+kamp88 chnget "camp88"
+kamp89 chnget "camp89"
+kamp90 chnget "camp90"
+kamp91 chnget "camp91"
+kamp92 chnget "camp92"
+kamp93 chnget "camp93"
+kamp94 chnget "camp94"
+kamp95 chnget "camp95"
+kamp96 chnget "camp96"
+kamp97 chnget "camp97"
+kamp98 chnget "camp98"
+kamp99 chnget "camp99"
+kamp100 chnget "camp100"
+kamp101 chnget "camp101"
+kamp102 chnget "camp102"
+kamp103 chnget "camp103"
+kamp104 chnget "camp104"
+kamp105 chnget "camp105"
+kamp106 chnget "camp106"
+kamp107 chnget "camp107"
+
+kfreq1 chnget "cfreq1"
+kfreq2 chnget "cfreq2"
+kfreq3 chnget "cfreq3"
+kfreq4 chnget "cfreq4"
+kfreq5 chnget "cfreq5"
+kfreq6 chnget "cfreq6"
+kfreq7 chnget "cfreq7"
+kfreq8 chnget "cfreq8"
+kfreq9 chnget "cfreq9"
+kfreq10 chnget "cfreq10"
+kfreq11 chnget "cfreq11"
+kfreq12 chnget "cfreq12"
+kfreq13 chnget "cfreq13"
+kfreq14 chnget "cfreq14"
+kfreq15 chnget "cfreq15"
+kfreq16 chnget "cfreq16"
+kfreq17 chnget "cfreq17"
+kfreq18 chnget "cfreq18"
+kfreq19 chnget "cfreq19"
+kfreq20 chnget "cfreq20"
+kfreq21 chnget "cfreq21"
+kfreq22 chnget "cfreq22"
+kfreq23 chnget "cfreq23"
+kfreq24 chnget "cfreq24"
+kfreq25 chnget "cfreq25"
+kfreq26 chnget "cfreq26"
+kfreq27 chnget "cfreq27"
+kfreq28 chnget "cfreq28"
+kfreq29 chnget "cfreq29"
+kfreq30 chnget "cfreq30"
+kfreq31 chnget "cfreq31"
+kfreq32 chnget "cfreq32"
+kfreq33 chnget "cfreq33"
+kfreq34 chnget "cfreq34"
+kfreq35 chnget "cfreq35"
+kfreq36 chnget "cfreq36"
+kfreq37 chnget "cfreq37"
+kfreq38 chnget "cfreq38"
+kfreq39 chnget "cfreq39"
+kfreq40 chnget "cfreq40"
+kfreq41 chnget "cfreq41"
+kfreq42 chnget "cfreq42"
+kfreq43 chnget "cfreq43"
+kfreq44 chnget "cfreq44"
+kfreq45 chnget "cfreq45"
+kfreq46 chnget "cfreq46"
+kfreq47 chnget "cfreq47"
+kfreq48 chnget "cfreq48"
+kfreq49 chnget "cfreq49"
+kfreq50 chnget "cfreq50"
+kfreq51 chnget "cfreq51"
+kfreq52 chnget "cfreq52"
+kfreq53 chnget "cfreq53"
+kfreq54 chnget "cfreq54"
+kfreq55 chnget "cfreq55"
+kfreq56 chnget "cfreq56"
+kfreq57 chnget "cfreq57"
+kfreq58 chnget "cfreq58"
+kfreq59 chnget "cfreq59"
+kfreq60 chnget "cfreq60"
+kfreq61 chnget "cfreq61"
+kfreq62 chnget "cfreq62"
+kfreq63 chnget "cfreq63"
+kfreq64 chnget "cfreq64"
+kfreq65 chnget "cfreq65"
+kfreq66 chnget "cfreq66"
+kfreq67 chnget "cfreq67"
+kfreq68 chnget "cfreq68"
+kfreq69 chnget "cfreq69"
+kfreq70 chnget "cfreq70"
+kfreq71 chnget "cfreq71"
+kfreq72 chnget "cfreq72"
+kfreq73 chnget "cfreq73"
+kfreq74 chnget "cfreq74"
+kfreq75 chnget "cfreq75"
+kfreq76 chnget "cfreq76"
+kfreq77 chnget "cfreq77"
+kfreq78 chnget "cfreq78"
+kfreq79 chnget "cfreq79"
+kfreq80 chnget "cfreq80"
+kfreq81 chnget "cfreq81"
+kfreq82 chnget "cfreq82"
+kfreq83 chnget "cfreq83"
+kfreq84 chnget "cfreq84"
+kfreq85 chnget "cfreq85"
+kfreq86 chnget "cfreq86"
+kfreq87 chnget "cfreq87"
+kfreq88 chnget "cfreq88"
+kfreq89 chnget "cfreq89"
+kfreq90 chnget "cfreq90"
+kfreq91 chnget "cfreq91"
+kfreq92 chnget "cfreq92"
+kfreq93 chnget "cfreq93"
+kfreq94 chnget "cfreq94"
+kfreq95 chnget "cfreq95"
+kfreq96 chnget "cfreq96"
+kfreq97 chnget "cfreq97"
+kfreq98 chnget "cfreq98"
+kfreq99 chnget "cfreq99"
+kfreq100 chnget "cfreq100"
+kfreq101 chnget "cfreq101"
+kfreq102 chnget "cfreq102"
+kfreq103 chnget "cfreq103"
+kfreq104 chnget "cfreq104"
+kfreq105 chnget "cfreq105"
+kfreq106 chnget "cfreq106"
+kfreq107 chnget "cfreq107"
+
+aOsc1 poscil kamp1, kfreq1, giSine
+aOsc2 poscil kamp2, kfreq2, giSine
+aOsc3 poscil kamp3, kfreq3, giSine
+aOsc4 poscil kamp4, kfreq4, giSine
+aOsc5 poscil kamp5, kfreq5, giSine
+aOsc6 poscil kamp6, kfreq6, giSine
+aOsc7 poscil kamp7, kfreq7, giSine
+aOsc8 poscil kamp8, kfreq8, giSine
+aOsc9 poscil kamp9, kfreq9, giSine
+aOsc10 poscil kamp10, kfreq10, giSine
+aOsc11 poscil kamp11, kfreq11, giSine
+aOsc12 poscil kamp12, kfreq12, giSine
+aOsc13 poscil kamp13, kfreq13, giSine
+aOsc14 poscil kamp14, kfreq14, giSine
+aOsc15 poscil kamp15, kfreq15, giSine
+aOsc16 poscil kamp16, kfreq16, giSine
+aOsc17 poscil kamp17, kfreq17, giSine
+aOsc18 poscil kamp18, kfreq18, giSine
+aOsc19 poscil kamp19, kfreq19, giSine
+aOsc20 poscil kamp20, kfreq20, giSine
+aOsc21 poscil kamp21, kfreq21, giSine
+aOsc22 poscil kamp22, kfreq22, giSine
+aOsc23 poscil kamp23, kfreq23, giSine
+aOsc24 poscil kamp24, kfreq24, giSine
+aOsc25 poscil kamp25, kfreq25, giSine
+aOsc26 poscil kamp26, kfreq26, giSine
+aOsc27 poscil kamp27, kfreq27, giSine
+aOsc28 poscil kamp28, kfreq28, giSine
+aOsc29 poscil kamp29, kfreq29, giSine
+aOsc30 poscil kamp30, kfreq30, giSine
+aOsc31 poscil kamp31, kfreq31, giSine
+aOsc32 poscil kamp32, kfreq32, giSine
+aOsc33 poscil kamp33, kfreq33, giSine
+aOsc34 poscil kamp34, kfreq34, giSine
+aOsc35 poscil kamp35, kfreq35, giSine
+aOsc36 poscil kamp36, kfreq36, giSine
+aOsc37 poscil kamp37, kfreq37, giSine
+aOsc38 poscil kamp38, kfreq38, giSine
+aOsc39 poscil kamp39, kfreq39, giSine
+aOsc40 poscil kamp40, kfreq40, giSine
+aOsc41 poscil kamp41, kfreq41, giSine
+aOsc42 poscil kamp42, kfreq42, giSine
+aOsc43 poscil kamp43, kfreq43, giSine
+aOsc44 poscil kamp44, kfreq44, giSine
+aOsc45 poscil kamp45, kfreq45, giSine
+aOsc46 poscil kamp46, kfreq46, giSine
+aOsc47 poscil kamp47, kfreq47, giSine
+aOsc48 poscil kamp48, kfreq48, giSine
+aOsc49 poscil kamp49, kfreq49, giSine
+aOsc50 poscil kamp50, kfreq50, giSine
+aOsc51 poscil kamp51, kfreq51, giSine
+aOsc52 poscil kamp52, kfreq52, giSine
+aOsc53 poscil kamp53, kfreq53, giSine
+aOsc54 poscil kamp54, kfreq54, giSine
+aOsc55 poscil kamp55, kfreq55, giSine
+aOsc56 poscil kamp56, kfreq56, giSine
+aOsc57 poscil kamp57, kfreq57, giSine
+aOsc58 poscil kamp58, kfreq58, giSine
+aOsc59 poscil kamp59, kfreq59, giSine
+aOsc60 poscil kamp60, kfreq60, giSine
+aOsc61 poscil kamp61, kfreq61, giSine
+aOsc62 poscil kamp62, kfreq62, giSine
+aOsc63 poscil kamp63, kfreq63, giSine
+aOsc64 poscil kamp64, kfreq64, giSine
+aOsc65 poscil kamp65, kfreq65, giSine
+aOsc66 poscil kamp66, kfreq66, giSine
+aOsc67 poscil kamp67, kfreq67, giSine
+aOsc68 poscil kamp68, kfreq68, giSine
+aOsc69 poscil kamp69, kfreq69, giSine
+aOsc70 poscil kamp70, kfreq70, giSine
+aOsc71 poscil kamp71, kfreq71, giSine
+aOsc72 poscil kamp72, kfreq72, giSine
+aOsc73 poscil kamp73, kfreq73, giSine
+aOsc74 poscil kamp74, kfreq74, giSine
+aOsc75 poscil kamp75, kfreq75, giSine
+aOsc76 poscil kamp76, kfreq76, giSine
+aOsc77 poscil kamp77, kfreq77, giSine
+aOsc78 poscil kamp78, kfreq78, giSine
+aOsc79 poscil kamp79, kfreq79, giSine
+aOsc80 poscil kamp80, kfreq80, giSine
+aOsc81 poscil kamp81, kfreq81, giSine
+aOsc82 poscil kamp82, kfreq82, giSine
+aOsc83 poscil kamp83, kfreq83, giSine
+aOsc84 poscil kamp84, kfreq84, giSine
+aOsc85 poscil kamp85, kfreq85, giSine
+aOsc86 poscil kamp86, kfreq86, giSine
+aOsc87 poscil kamp87, kfreq87, giSine
+aOsc88 poscil kamp88, kfreq88, giSine
+aOsc89 poscil kamp89, kfreq89, giSine
+aOsc90 poscil kamp90, kfreq90, giSine
+aOsc91 poscil kamp91, kfreq91, giSine
+aOsc92 poscil kamp92, kfreq92, giSine
+aOsc93 poscil kamp93, kfreq93, giSine
+aOsc94 poscil kamp94, kfreq94, giSine
+aOsc95 poscil kamp95, kfreq95, giSine
+aOsc96 poscil kamp96, kfreq96, giSine
+aOsc97 poscil kamp97, kfreq97, giSine
+aOsc98 poscil kamp98, kfreq98, giSine
+aOsc99 poscil kamp99, kfreq99, giSine
+aOsc100 poscil kamp100, kfreq100, giSine
+aOsc101 poscil kamp101, kfreq101, giSine
+aOsc102 poscil kamp102, kfreq102, giSine
+aOsc103 poscil kamp103, kfreq103, giSine
+aOsc104 poscil kamp104, kfreq104, giSine
+aOsc105 poscil kamp105, kfreq105, giSine
+aOsc106 poscil kamp106, kfreq106, giSine
+aOsc107 poscil kamp107, kfreq107, giSine
+
+aL  sum aOsc1,aOsc3,aOsc5,aOsc7,aOsc9,aOsc11,aOsc13,aOsc15,aOsc17,aOsc19,aOsc21,aOsc23,aOsc25,aOsc27,aOsc29,aOsc31,aOsc33,aOsc35,aOsc37,aOsc39,aOsc41,aOsc43,aOsc45,aOsc47,aOsc49,aOsc51,aOsc53,aOsc55,aOsc57,aOsc59,aOsc61,aOsc63,aOsc65,aOsc67,aOsc69,aOsc71,aOsc73,aOsc75,aOsc77,aOsc79,aOsc81,aOsc83,aOsc85,aOsc87,aOsc89,aOsc91,aOsc93,aOsc95,aOsc97,aOsc99,aOsc101,aOsc103,aOsc105,aOsc107
+aR  sum aOsc2,aOsc4,aOsc6,aOsc8,aOsc10,aOsc12,aOsc14,aOsc16,aOsc18,aOsc20,aOsc22,aOsc24,aOsc26,aOsc28,aOsc30,aOsc32,aOsc34,aOsc36,aOsc38,aOsc40,aOsc42,aOsc44,aOsc46,aOsc48,aOsc50,aOsc52,aOsc54,aOsc56,aOsc58,aOsc60,aOsc62,aOsc64,aOsc66,aOsc68,aOsc70,aOsc72,aOsc74,aOsc76,aOsc78,aOsc80,aOsc82,aOsc84,aOsc86,aOsc88,aOsc90,aOsc92,aOsc94,aOsc96,aOsc98,aOsc100,aOsc102,aOsc104,aOsc106
+
+    
+    outs   aL, aR
+    endin
+    
+    
