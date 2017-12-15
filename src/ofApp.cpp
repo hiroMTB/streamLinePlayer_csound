@@ -25,11 +25,15 @@ void ofApp::setup(){
     prmLine.setMode(OF_PRIMITIVE_LINES);
     loadData("musical_cylinder_04_strm_02.csv");
     
-    renderDuration = 60 * 10; // 10 min
     
-    setupCsound();
-    setupOrc();
-    startCsound();
+    numOcs = 100; //poly.size() * 0.01;
+    
+    renderDuration = 60 * 5; // 10 min
+    
+//    setupCsound();
+//    setupOrc();
+//    setupSco();
+//    startCsound();
     
 }
 
@@ -46,7 +50,7 @@ void ofApp::setupCsound(){
 
 void ofApp::setupOrc(){
     
-    numOcs = poly.size();
+
     cout << "making Orchestra file for " << numOcs << " Sine waves" << endl;
     
     sr = 48000;    // sampling rate
@@ -58,25 +62,14 @@ void ofApp::setupOrc(){
     
     string gen = R"dlm(
     
-    giSine    ftgen     0, 0, 2^12, 10, 1
+    giSine    ftgen     0, 0, 2^16, 10, 1
     
     )dlm";
     
     string instr1_top = R"dlm(
     
     instr 1
-    ifrq  = p4
-    print ifrq
 
-    iF1  = ifrq
-    iF2  = ifrq * 1.02
-    iF3  = ifrq * 1.1
-    iF4  = ifrq * 1.23
-    iF5  = ifrq * 1.26
-    iF6  = ifrq * 1.31
-    iF7  = ifrq * 1.39
-    iF8  = ifrq * 1.41
-    
     )dlm";
     
     string instr1_kamp;
@@ -93,12 +86,11 @@ void ofApp::setupOrc(){
     for( int i=0; i<numOcs; i++){
         int id = i+1;
         int octave = floor(i/8);
-        string scale = "iF" + ofToString(i%8+1);
-        
-        int maxOctave = numOcs/4;
-       
-        
-        string aOsc = mt::op_orc("aOsc"+to_string(id), "poscil", "kamp"+to_string(id), scale+"*"+to_string(pow(2,octave)), "giSine" );
+        double per = (float)i/numOcs;
+        double freq = 20000.0 - log10(numOcs-i+1)/log10(numOcs) * 20000.0;
+        string freqs = ofToString(freq);
+        string weight = "/"+ofToString(i%8+1);
+        string aOsc = mt::op_orc("aOsc"+to_string(id), "poscil", "kamp"+to_string(id)+weight, freqs, "giSine" );
         instr1_aOsc += aOsc;
     }
     
@@ -143,6 +135,26 @@ void ofApp::setupOrc(){
     }
 }
 
+void ofApp::setupSco(){
+    
+    string sco = R"dlm(
+    
+    ;score
+    ;          freq
+    ;i 1 0 300  2.0439453125
+    i 1 0 300
+    
+    )dlm";
+    
+    cout << sco << endl;
+    int r2 = csound->ReadScore(sco.c_str());
+    if( r2 ==0 ){
+        cout << "Score file compile OK\n";
+    }else{
+        cout << "Score file compile Failed\n";
+    }
+}
+
 void ofApp::startCsound(){
     
     csound->Start();
@@ -164,13 +176,14 @@ void ofApp::startCsound(){
     
         percent = (double)currentFrame/totalKFrame;
         currentFrame++;
+        printf("writing %0.8f\n", percent*100.0);
         
         for( int f=0; f<numOcs; f++ ){
             string chname = "camp" + to_string(f+1);
             csoundGetChannelPtr( csound->GetCsound(), &camp[f], chname.c_str(), CSOUND_INPUT_CHANNEL | CSOUND_CONTROL_CHANNEL );
             
             glm::vec3 m = magnitude[f].getPointAtPercent(percent);
-            double amp = m.y;
+            double amp = m.y * 0.0001;
             if(init) amp = amp*0.0001 + prevAmp[f]*0.9999;
             *camp[f] = amp;
             prevAmp[f] = amp;
@@ -259,25 +272,6 @@ void ofApp::update(){
 
 }
 
-void ofApp::setupSco(){
-    
-    string sco = R"dlm(
-    
-    ;score
-    ;          freq
-    i 1 0 600  2.0439453125
-    
-    )dlm";
-    
-    cout << sco << endl;
-    int r2 = csound->ReadScore(sco.c_str());
-    if( r2 ==0 ){
-        cout << "Score file compile OK\n";
-    }else{
-        cout << "Score file compile Failed\n";
-    }
-}
-
 void ofApp::draw(){
    
     ofEnableAntiAliasing();
@@ -305,7 +299,7 @@ void ofApp::draw(){
         // indicator
         glPointSize(3);
         points.draw();
-        
+
 
     }cam.end();
 }
@@ -331,7 +325,7 @@ void ofApp::keyPressed(int key){
 }
 
 void ofApp::exit(){
-    csoundDestroy( csound->GetCsound() );
+if(csound) csoundDestroy( csound->GetCsound() );
 }
 
 void ofApp::saveString( string str, filesystem::path path ){
