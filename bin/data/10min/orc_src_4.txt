@@ -1,0 +1,478 @@
+sr     = 96000
+ksmps  = 16
+nchnls = 2
+0dbfs  = 1.000000
+
+    
+    giSine    ftgen     0, 0, 2^16, 10, 1
+    
+    
+    
+    instr 1
+
+    kamp1 chnget "camp1"
+kamp2 chnget "camp2"
+kamp3 chnget "camp3"
+kamp4 chnget "camp4"
+kamp5 chnget "camp5"
+kamp6 chnget "camp6"
+kamp7 chnget "camp7"
+kamp8 chnget "camp8"
+kamp9 chnget "camp9"
+kamp10 chnget "camp10"
+kamp11 chnget "camp11"
+kamp12 chnget "camp12"
+kamp13 chnget "camp13"
+kamp14 chnget "camp14"
+kamp15 chnget "camp15"
+kamp16 chnget "camp16"
+kamp17 chnget "camp17"
+kamp18 chnget "camp18"
+kamp19 chnget "camp19"
+kamp20 chnget "camp20"
+kamp21 chnget "camp21"
+kamp22 chnget "camp22"
+kamp23 chnget "camp23"
+kamp24 chnget "camp24"
+kamp25 chnget "camp25"
+kamp26 chnget "camp26"
+kamp27 chnget "camp27"
+kamp28 chnget "camp28"
+kamp29 chnget "camp29"
+kamp30 chnget "camp30"
+kamp31 chnget "camp31"
+kamp32 chnget "camp32"
+kamp33 chnget "camp33"
+kamp34 chnget "camp34"
+kamp35 chnget "camp35"
+kamp36 chnget "camp36"
+kamp37 chnget "camp37"
+kamp38 chnget "camp38"
+kamp39 chnget "camp39"
+kamp40 chnget "camp40"
+kamp41 chnget "camp41"
+kamp42 chnget "camp42"
+kamp43 chnget "camp43"
+kamp44 chnget "camp44"
+kamp45 chnget "camp45"
+kamp46 chnget "camp46"
+kamp47 chnget "camp47"
+kamp48 chnget "camp48"
+kamp49 chnget "camp49"
+kamp50 chnget "camp50"
+kamp51 chnget "camp51"
+kamp52 chnget "camp52"
+kamp53 chnget "camp53"
+kamp54 chnget "camp54"
+kamp55 chnget "camp55"
+kamp56 chnget "camp56"
+kamp57 chnget "camp57"
+kamp58 chnget "camp58"
+kamp59 chnget "camp59"
+kamp60 chnget "camp60"
+kamp61 chnget "camp61"
+kamp62 chnget "camp62"
+kamp63 chnget "camp63"
+kamp64 chnget "camp64"
+kamp65 chnget "camp65"
+kamp66 chnget "camp66"
+kamp67 chnget "camp67"
+kamp68 chnget "camp68"
+kamp69 chnget "camp69"
+kamp70 chnget "camp70"
+kamp71 chnget "camp71"
+kamp72 chnget "camp72"
+kamp73 chnget "camp73"
+kamp74 chnget "camp74"
+kamp75 chnget "camp75"
+kamp76 chnget "camp76"
+kamp77 chnget "camp77"
+kamp78 chnget "camp78"
+kamp79 chnget "camp79"
+kamp80 chnget "camp80"
+kamp81 chnget "camp81"
+kamp82 chnget "camp82"
+kamp83 chnget "camp83"
+kamp84 chnget "camp84"
+kamp85 chnget "camp85"
+kamp86 chnget "camp86"
+kamp87 chnget "camp87"
+kamp88 chnget "camp88"
+kamp89 chnget "camp89"
+kamp90 chnget "camp90"
+kamp91 chnget "camp91"
+kamp92 chnget "camp92"
+kamp93 chnget "camp93"
+kamp94 chnget "camp94"
+kamp95 chnget "camp95"
+kamp96 chnget "camp96"
+kamp97 chnget "camp97"
+kamp98 chnget "camp98"
+kamp99 chnget "camp99"
+kamp100 chnget "camp100"
+kamp101 chnget "camp101"
+kamp102 chnget "camp102"
+kamp103 chnget "camp103"
+kamp104 chnget "camp104"
+kamp105 chnget "camp105"
+kamp106 chnget "camp106"
+kamp107 chnget "camp107"
+kamp108 chnget "camp108"
+kamp109 chnget "camp109"
+kamp110 chnget "camp110"
+kamp111 chnget "camp111"
+kamp112 chnget "camp112"
+kamp113 chnget "camp113"
+kamp114 chnget "camp114"
+kamp115 chnget "camp115"
+kamp116 chnget "camp116"
+kamp117 chnget "camp117"
+kamp118 chnget "camp118"
+kamp119 chnget "camp119"
+kamp120 chnget "camp120"
+kamp121 chnget "camp121"
+kamp122 chnget "camp122"
+kamp123 chnget "camp123"
+kamp124 chnget "camp124"
+kamp125 chnget "camp125"
+kamp126 chnget "camp126"
+kamp127 chnget "camp127"
+kamp128 chnget "camp128"
+kamp129 chnget "camp129"
+kamp130 chnget "camp130"
+kamp131 chnget "camp131"
+kamp132 chnget "camp132"
+kamp133 chnget "camp133"
+kamp134 chnget "camp134"
+kamp135 chnget "camp135"
+kamp136 chnget "camp136"
+kamp137 chnget "camp137"
+kamp138 chnget "camp138"
+kamp139 chnget "camp139"
+kamp140 chnget "camp140"
+kamp141 chnget "camp141"
+kamp142 chnget "camp142"
+kamp143 chnget "camp143"
+kamp144 chnget "camp144"
+kamp145 chnget "camp145"
+kamp146 chnget "camp146"
+kamp147 chnget "camp147"
+kamp148 chnget "camp148"
+kamp149 chnget "camp149"
+kamp150 chnget "camp150"
+kamp151 chnget "camp151"
+kamp152 chnget "camp152"
+kamp153 chnget "camp153"
+kamp154 chnget "camp154"
+kamp155 chnget "camp155"
+kamp156 chnget "camp156"
+kamp157 chnget "camp157"
+kamp158 chnget "camp158"
+kamp159 chnget "camp159"
+kamp160 chnget "camp160"
+kamp161 chnget "camp161"
+kamp162 chnget "camp162"
+kamp163 chnget "camp163"
+kamp164 chnget "camp164"
+kamp165 chnget "camp165"
+kamp166 chnget "camp166"
+kamp167 chnget "camp167"
+kamp168 chnget "camp168"
+kamp169 chnget "camp169"
+kamp170 chnget "camp170"
+kamp171 chnget "camp171"
+kamp172 chnget "camp172"
+kamp173 chnget "camp173"
+kamp174 chnget "camp174"
+kamp175 chnget "camp175"
+kamp176 chnget "camp176"
+kamp177 chnget "camp177"
+kamp178 chnget "camp178"
+kamp179 chnget "camp179"
+kamp180 chnget "camp180"
+kamp181 chnget "camp181"
+kamp182 chnget "camp182"
+kamp183 chnget "camp183"
+kamp184 chnget "camp184"
+kamp185 chnget "camp185"
+kamp186 chnget "camp186"
+kamp187 chnget "camp187"
+kamp188 chnget "camp188"
+kamp189 chnget "camp189"
+kamp190 chnget "camp190"
+kamp191 chnget "camp191"
+kamp192 chnget "camp192"
+kamp193 chnget "camp193"
+kamp194 chnget "camp194"
+kamp195 chnget "camp195"
+kamp196 chnget "camp196"
+kamp197 chnget "camp197"
+kamp198 chnget "camp198"
+kamp199 chnget "camp199"
+kamp200 chnget "camp200"
+kamp201 chnget "camp201"
+kamp202 chnget "camp202"
+kamp203 chnget "camp203"
+kamp204 chnget "camp204"
+kamp205 chnget "camp205"
+kamp206 chnget "camp206"
+kamp207 chnget "camp207"
+kamp208 chnget "camp208"
+kamp209 chnget "camp209"
+kamp210 chnget "camp210"
+kamp211 chnget "camp211"
+kamp212 chnget "camp212"
+kamp213 chnget "camp213"
+kamp214 chnget "camp214"
+kamp215 chnget "camp215"
+kamp216 chnget "camp216"
+kamp217 chnget "camp217"
+kamp218 chnget "camp218"
+kamp219 chnget "camp219"
+kamp220 chnget "camp220"
+kamp221 chnget "camp221"
+kamp222 chnget "camp222"
+kamp223 chnget "camp223"
+kamp224 chnget "camp224"
+kamp225 chnget "camp225"
+kamp226 chnget "camp226"
+kamp227 chnget "camp227"
+kamp228 chnget "camp228"
+
+aOsc1 poscil kamp1, 1302.34574276144439863856, giSine
+aOsc2 poscil kamp2, 1302.81527431736844846455, giSine
+aOsc3 poscil kamp3, 1303.29467172936915630999, giSine
+aOsc4 poscil kamp4, 1303.78414230005432727921, giSine
+aOsc5 poscil kamp5, 1304.28389768790088965034, giSine
+aOsc6 poscil kamp6, 1304.79415399877984782506, giSine
+aOsc7 poscil kamp7, 1305.31513187940549869381, giSine
+aOsc8 poscil kamp8, 1305.84705661274983867770, giSine
+aOsc9 poscil kamp9, 1306.39015821545785911439, giSine
+aOsc10 poscil kamp10, 1306.94467153731375219650, giSine
+aOsc11 poscil kamp11, 1307.51083636279486199783, giSine
+aOsc12 poscil kamp12, 1308.08889751475999219110, giSine
+aOsc13 poscil kamp13, 1308.67910496031663569738, giSine
+aOsc14 poscil kamp14, 1309.28171391891260100238, giSine
+aOsc15 poscil kamp15, 1309.89698497269887411676, giSine
+aOsc16 poscil kamp16, 1310.52518417921123727865, giSine
+aOsc17 poscil kamp17, 1311.16658318641998448584, giSine
+aOsc18 poscil kamp18, 1311.82145935019684657163, giSine
+aOsc19 poscil kamp19, 1312.49009585424937540665, giSine
+aOsc20 poscil kamp20, 1313.17278183257758428226, giSine
+aOsc21 poscil kamp21, 1313.86981249450104769494, giSine
+aOsc22 poscil kamp22, 1314.58148925231466819241, giSine
+aOsc23 poscil kamp23, 1315.30811985162608834798, giSine
+aOsc24 poscil kamp24, 1316.05001850443318289763, giSine
+aOsc25 poscil kamp25, 1316.80750602499506385357, giSine
+aOsc26 poscil kamp26, 1317.58090996856049059716, giSine
+aOsc27 poscil kamp27, 1318.37056477301052836992, giSine
+aOsc28 poscil kamp28, 1319.17681190347707342880, giSine
+aOsc29 poscil kamp29, 1320.00000000000000000000, giSine
+aOsc30 poscil kamp30, 1320.84048502828773052897, giSine
+aOsc31 poscil kamp31, 1321.69863043364489385567, giSine
+aOsc32 poscil kamp32, 1322.57480729813437392295, giSine
+aOsc33 poscil kamp33, 1323.46939450104241586814, giSine
+aOsc34 poscil kamp34, 1324.38277888271386473207, giSine
+aOsc35 poscil kamp35, 1325.31535541183188797731, giSine
+aOsc36 poscil kamp36, 1326.26752735621153078682, giSine
+aOsc37 poscil kamp37, 1327.23970645718122796097, giSine
+aOsc38 poscil kamp38, 1328.23231310763048895751, giSine
+aOsc39 poscil kamp39, 1329.24577653379674302414, giSine
+aOsc40 poscil kamp40, 1330.28053498087319894694, giSine
+aOsc41 poscil kamp41, 1331.33703590251616333262, giSine
+aOsc42 poscil kamp42, 1332.41573615433458144253, giSine
+aOsc43 poscil kamp43, 1333.51710219144456459617, giSine
+aOsc44 poscil kamp44, 1334.64161027017576088838, giSine
+aOsc45 poscil kamp45, 1335.78974665401619859040, giSine
+aOsc46 poscil kamp46, 1336.96200782388291372627, giSine
+aOsc47 poscil kamp47, 1338.15890069281249452615, giSine
+aOsc48 poscil kamp48, 1339.38094282516203747946, giSine
+aOsc49 poscil kamp49, 1340.62866266041601193137, giSine
+aOsc50 poscil kamp50, 1341.90259974169566703495, giSine
+aOsc51 poscil kamp51, 1343.20330494907011598116, giSine
+aOsc52 poscil kamp52, 1344.53134073777005141892, giSine
+aOsc53 poscil kamp53, 1345.88728138140595547156, giSine
+aOsc54 poscil kamp54, 1347.27171322029721522995, giSine
+aOsc55 poscil kamp55, 1348.68523491502037359169, giSine
+aOsc56 poscil kamp56, 1350.12845770528292632662, giSine
+aOsc57 poscil kamp57, 1351.60200567423771644826, giSine
+aOsc58 poscil kamp58, 1353.10651601835206747637, giSine
+aOsc59 poscil kamp59, 1354.64263932294466030726, giSine
+aOsc60 poscil kamp60, 1356.21103984351498183969, giSine
+aOsc61 poscil kamp61, 1357.81239579298289754661, giSine
+aOsc62 poscil kamp62, 1359.44739963496294876677, giSine
+aOsc63 poscil kamp63, 1361.11675838320229559031, giSine
+aOsc64 poscil kamp64, 1362.82119390731008934381, giSine
+aOsc65 poscil kamp65, 1364.56144324491037878033, giSine
+aOsc66 poscil kamp66, 1366.33825892035429205862, giSine
+aOsc67 poscil kamp67, 1368.15240927012882821145, giSine
+aOsc68 poscil kamp68, 1370.00467877510482139769, giSine
+aOsc69 poscil kamp69, 1371.89586839976277587994, giSine
+aOsc70 poscil kamp70, 1373.82679593855027633253, giSine
+aOsc71 poscil kamp71, 1375.79829636951421889535, giSine
+aOsc72 poscil kamp72, 1377.81122221536543293041, giSine
+aOsc73 poscil kamp73, 1379.86644391212894333876, giSine
+aOsc74 poscil kamp74, 1381.96485018554108137323, giSine
+aOsc75 poscil kamp75, 1384.10734843535465188324, giSine
+aOsc76 poscil kamp76, 1386.29486512772086825862, giSine
+aOsc77 poscil kamp77, 1388.52834619581381048192, giSine
+aOsc78 poscil kamp78, 1390.80875744887384826143, giSine
+aOsc79 poscil kamp79, 1393.13708498984760808526, giSine
+aOsc80 poscil kamp80, 1395.51433564179978930042, giSine
+aOsc81 poscil kamp81, 1397.94153738328805047786, giSine
+aOsc82 poscil kamp82, 1400.41973979288536611421, giSine
+aOsc83 poscil kamp83, 1402.95001450304107493139, giSine
+aOsc84 poscil kamp84, 1405.53345566348025386105, giSine
+aOsc85 poscil kamp85, 1408.17118041433946018515, giSine
+aOsc86 poscil kamp86, 1410.86432936924506975629, giSine
+aOsc87 poscil kamp87, 1413.61406710853907497949, giSine
+aOsc88 poscil kamp88, 1416.42158268287312239408, giSine
+aOsc89 poscil kamp89, 1419.28809012737974626361, giSine
+aOsc90 poscil kamp90, 1422.21482898665135508054, giSine
+aOsc91 poscil kamp91, 1425.20306485074570446159, giSine
+aOsc92 poscil kamp92, 1428.25408990245932727703, giSine
+aOsc93 poscil kamp93, 1431.36922347609538519464, giSine
+aOsc94 poscil kamp94, 1434.54981262797537056031, giSine
+aOsc95 poscil kamp95, 1437.79723271893749370065, giSine
+aOsc96 poscil kamp96, 1441.11288800907504992210, giSine
+aOsc97 poscil kamp97, 1444.49821226497056159133, giSine
+aOsc98 poscil kamp98, 1447.95466937969081300253, giSine
+aOsc99 poscil kamp99, 1451.48375400580698624253, giSine
+aOsc100 poscil kamp100, 1455.08699220171843080607, giSine
+aOsc101 poscil kamp101, 1458.76594209155518910848, giSine
+aOsc102 poscil kamp102, 1462.52219453894781509007, giSine
+aOsc103 poscil kamp103, 1466.35737383495302310621, giSine
+aOsc104 poscil kamp104, 1470.27313840043530035473, giSine
+aOsc105 poscil kamp105, 1474.27118150320757195004, giSine
+aOsc106 poscil kamp106, 1478.35323199023787310580, giSine
+aOsc107 poscil kamp107, 1482.52105503524489904521, giSine
+aOsc108 poscil kamp108, 1486.77645290199870942160, giSine
+aOsc109 poscil kamp109, 1491.12126572366310028883, giSine
+aOsc110 poscil kamp110, 1495.55737229851047231932, giSine
+aOsc111 poscil kamp111, 1500.08669090235889598262, giSine
+aOsc112 poscil kamp112, 1504.71118011807948278147, giSine
+aOsc113 poscil kamp113, 1509.43283968253240345803, giSine
+aOsc114 poscil kamp114, 1514.25371135130012589798, giSine
+aOsc115 poscil kamp115, 1519.17587978159008343937, giSine
+aOsc116 poscil kamp116, 1524.20147343368944348185, giSine
+aOsc117 poscil kamp117, 1529.33266549135987588670, giSine
+aOsc118 poscil kamp118, 1534.57167480157386307837, giSine
+aOsc119 poscil kamp119, 1539.92076683399545800057, giSine
+aOsc120 poscil kamp120, 1545.38225466062135637912, giSine
+aOsc121 poscil kamp121, 1550.95849995600883630686, giSine
+aOsc122 poscil kamp122, 1556.65191401851689079194, giSine
+aOsc123 poscil kamp123, 1562.46495881300961627858, giSine
+aOsc124 poscil kamp124, 1568.40014803546569055470, giSine
+aOsc125 poscil kamp125, 1574.46004819996005608118, giSine
+aOsc126 poscil kamp126, 1580.64727974848392477725, giSine
+aOsc127 poscil kamp127, 1586.96451818408468170674, giSine
+aOsc128 poscil kamp128, 1593.41449522781658743042, giSine
+aOsc129 poscil kamp129, 1600.00000000000000000000, giSine
+aOsc130 poscil kamp130, 1606.72388022630184423178, giSine
+aOsc131 poscil kamp131, 1613.58904346915892347170, giSine
+aOsc132 poscil kamp132, 1620.59845838507521875727, giSine
+aOsc133 poscil kamp133, 1627.75515600833864482411, giSine
+aOsc134 poscil kamp134, 1635.06223106171046310919, giSine
+aOsc135 poscil kamp135, 1642.52284329465555856586, giSine
+aOsc136 poscil kamp136, 1650.14021884969201892090, giSine
+aOsc137 poscil kamp137, 1657.91765165744982368778, giSine
+aOsc138 poscil kamp138, 1665.85850486104345691274, giSine
+aOsc139 poscil kamp139, 1673.96621227037326207210, giSine
+aOsc140 poscil kamp140, 1682.24427984698513682815, giSine
+aOsc141 poscil kamp141, 1690.69628722012930666097, giSine
+aOsc142 poscil kamp142, 1699.32588923467619679286, giSine
+aOsc143 poscil kamp143, 1708.13681753155583464832, giSine
+aOsc144 poscil kamp144, 1717.13288216140654185438, giSine
+aOsc145 poscil kamp145, 1726.31797323212958872318, giSine
+aOsc146 poscil kamp146, 1735.69606259106308243645, giSine
+aOsc147 poscil kamp147, 1745.27120554249950146186, giSine
+aOsc148 poscil kamp148, 1755.04754260129584508832, giSine
+aOsc149 poscil kamp149, 1765.02930128332741332997, giSine
+aOsc150 poscil kamp150, 1775.22079793356488153222, giSine
+aOsc151 poscil kamp151, 1785.62643959256138259661, giSine
+aOsc152 poscil kamp152, 1796.25072590216086609871, giSine
+aOsc153 poscil kamp153, 1807.09825105124673427781, giSine
+aOsc154 poscil kamp154, 1818.17370576237726709223, giSine
+aOsc155 poscil kamp155, 1829.48187932016253398615, giSine
+aOsc156 poscil kamp156, 1841.02766164226250111824, giSine
+aOsc157 poscil kamp157, 1852.81604539390218633343, giSine
+aOsc158 poscil kamp158, 1864.85212814681653981097, giSine
+aOsc159 poscil kamp159, 1877.14111458355682771071, giSine
+aOsc160 poscil kamp160, 1889.68831874811985471752, giSine
+aOsc161 poscil kamp161, 1902.49916634386272562551, giSine
+aOsc162 poscil kamp162, 1915.57919707970313538681, giSine
+aOsc163 poscil kamp163, 1928.93406706561859209614, giSine
+aOsc164 poscil kamp164, 1942.56955125848162424518, giSine
+aOsc165 poscil kamp165, 1956.49154595928348499001, giSine
+aOsc166 poscil kamp166, 1970.70607136283342697425, giSine
+aOsc167 poscil kamp167, 1985.21927416103108043899, giSine
+aOsc168 poscil kamp168, 2000.03743020083811643417, giSine
+aOsc169 poscil kamp169, 2015.16694719810243441316, giSine
+aOsc170 poscil kamp170, 2030.61436750840243803395, giSine
+aOsc171 poscil kamp171, 2046.38637095611420591013, giSine
+aOsc172 poscil kamp172, 2062.48977772292391819065, giSine
+aOsc173 poscil kamp173, 2078.93155129703154671006, giSine
+aOsc174 poscil kamp174, 2095.71880148432774149114, giSine
+aOsc175 poscil kamp175, 2112.85878748283721506596, giSine
+aOsc176 poscil kamp176, 2130.35892102176740081632, giSine
+aOsc177 poscil kamp177, 2148.22676956651002910803, giSine
+aOsc178 poscil kamp178, 2166.47005959099169558613, giSine
+aOsc179 poscil kamp179, 2185.09667991878086468205, giSine
+aOsc180 poscil kamp180, 2204.11468513439740490867, giSine
+aOsc181 poscil kamp181, 2223.53229906630485857022, giSine
+aOsc182 poscil kamp182, 2243.35791834308292891365, giSine
+aOsc183 poscil kamp183, 2263.60011602432768995641, giSine
+aOsc184 poscil kamp184, 2284.26764530784112139372, giSine
+aOsc185 poscil kamp185, 2305.36944331471659097588, giSine
+aOsc186 poscil kamp186, 2326.91463495395964855561, giSine
+aOsc187 poscil kamp187, 2348.91253686831259983592, giSine
+aOsc188 poscil kamp188, 2371.37266146298452440533, giSine
+aOsc189 poscil kamp189, 2394.30472101903887960361, giSine
+aOsc190 poscil kamp190, 2417.71863189320993114961, giSine
+aOsc191 poscil kamp191, 2441.62451880596563569270, giSine
+aOsc192 poscil kamp192, 2466.03271921967461821623, giSine
+aOsc193 poscil kamp193, 2490.95378780876262680977, giSine
+aOsc194 poscil kamp194, 2516.39850102380205498775, giSine
+aOsc195 poscil kamp195, 2542.37786175149994960520, giSine
+aOsc196 poscil kamp196, 2568.90310407260039937682, giSine
+aOsc197 poscil kamp197, 2595.98569811976540222531, giSine
+aOsc198 poscil kamp198, 2623.63735503752650402021, giSine
+aOsc199 poscil kamp199, 2651.87003204645498044556, giSine
+aOsc200 poscil kamp200, 2680.69593761374653695384, giSine
+aOsc201 poscil kamp201, 2710.12753673244151286781, giSine
+aOsc202 poscil kamp202, 2740.17755631158252072055, giSine
+aOsc203 poscil kamp203, 2770.85899067962327535497, giSine
+aOsc204 poscil kamp204, 2802.18510720348285758519, giSine
+aOsc205 poscil kamp205, 2834.16945202566012085299, giSine
+aOsc206 poscil kamp206, 2866.82585592190298484638, giSine
+aOsc207 poscil kamp207, 2900.16844028195828286698, giSine
+aOsc208 poscil kamp208, 2934.21162321599013012019, giSine
+aOsc209 poscil kamp209, 2968.97012578930480231065, giSine
+aOsc210 poscil kamp210, 3004.45897838808377855457, giSine
+aOsc211 poscil kamp211, 3040.69352721887207735563, giSine
+aOsc212 poscil kamp212, 3077.68944094463677174645, giSine
+aOsc213 poscil kamp213, 3115.46271746025922766421, giSine
+aOsc214 poscil kamp214, 3154.02969081040055243648, giSine
+aOsc215 poscil kamp215, 3193.40703825272157700965, giSine
+aOsc216 poscil kamp216, 3233.61178746951554785483, giSine
+aOsc217 poscil kamp217, 3274.66132393087991658831, giSine
+aOsc218 poscil kamp218, 3316.57339841259181412170, giSine
+aOsc219 poscil kamp219, 3359.36613467196320925723, giSine
+aOsc220 poscil kamp220, 3403.05803728497085103299, giSine
+aOsc221 poscil kamp221, 3447.66799964806932621286, giSine
+aOsc222 poscil kamp222, 3493.21531214813512633555, giSine
+aOsc223 poscil kamp223, 3539.71967050407647548127, giSine
+aOsc224 poscil kamp224, 3587.20118428372552443761, giSine
+aOsc225 poscil kamp225, 3635.68038559967999390210, giSine
+aOsc226 poscil kamp226, 3685.17823798787003397592, giSine
+aOsc227 poscil kamp227, 3735.71614547267654415919, giSine
+aOsc228 poscil kamp228, 3787.31596182253269944340, giSine
+
+aL  sum aOsc1,aOsc3,aOsc5,aOsc7,aOsc9,aOsc11,aOsc13,aOsc15,aOsc17,aOsc19,aOsc21,aOsc23,aOsc25,aOsc27,aOsc29,aOsc31,aOsc33,aOsc35,aOsc37,aOsc39,aOsc41,aOsc43,aOsc45,aOsc47,aOsc49,aOsc51,aOsc53,aOsc55,aOsc57,aOsc59,aOsc61,aOsc63,aOsc65,aOsc67,aOsc69,aOsc71,aOsc73,aOsc75,aOsc77,aOsc79,aOsc81,aOsc83,aOsc85,aOsc87,aOsc89,aOsc91,aOsc93,aOsc95,aOsc97,aOsc99,aOsc101,aOsc103,aOsc105,aOsc107,aOsc109,aOsc111,aOsc113,aOsc115,aOsc117,aOsc119,aOsc121,aOsc123,aOsc125,aOsc127,aOsc129,aOsc131,aOsc133,aOsc135,aOsc137,aOsc139,aOsc141,aOsc143,aOsc145,aOsc147,aOsc149,aOsc151,aOsc153,aOsc155,aOsc157,aOsc159,aOsc161,aOsc163,aOsc165,aOsc167,aOsc169,aOsc171,aOsc173,aOsc175,aOsc177,aOsc179,aOsc181,aOsc183,aOsc185,aOsc187,aOsc189,aOsc191,aOsc193,aOsc195,aOsc197,aOsc199,aOsc201,aOsc203,aOsc205,aOsc207,aOsc209,aOsc211,aOsc213,aOsc215,aOsc217,aOsc219,aOsc221,aOsc223,aOsc225,aOsc227
+aR  sum aOsc2,aOsc4,aOsc6,aOsc8,aOsc10,aOsc12,aOsc14,aOsc16,aOsc18,aOsc20,aOsc22,aOsc24,aOsc26,aOsc28,aOsc30,aOsc32,aOsc34,aOsc36,aOsc38,aOsc40,aOsc42,aOsc44,aOsc46,aOsc48,aOsc50,aOsc52,aOsc54,aOsc56,aOsc58,aOsc60,aOsc62,aOsc64,aOsc66,aOsc68,aOsc70,aOsc72,aOsc74,aOsc76,aOsc78,aOsc80,aOsc82,aOsc84,aOsc86,aOsc88,aOsc90,aOsc92,aOsc94,aOsc96,aOsc98,aOsc100,aOsc102,aOsc104,aOsc106,aOsc108,aOsc110,aOsc112,aOsc114,aOsc116,aOsc118,aOsc120,aOsc122,aOsc124,aOsc126,aOsc128,aOsc130,aOsc132,aOsc134,aOsc136,aOsc138,aOsc140,aOsc142,aOsc144,aOsc146,aOsc148,aOsc150,aOsc152,aOsc154,aOsc156,aOsc158,aOsc160,aOsc162,aOsc164,aOsc166,aOsc168,aOsc170,aOsc172,aOsc174,aOsc176,aOsc178,aOsc180,aOsc182,aOsc184,aOsc186,aOsc188,aOsc190,aOsc192,aOsc194,aOsc196,aOsc198,aOsc200,aOsc202,aOsc204,aOsc206,aOsc208,aOsc210,aOsc212,aOsc214,aOsc216,aOsc218,aOsc220,aOsc222,aOsc224,aOsc226,aOsc228
+
+    
+    outs   aL, aR
+    endin
+    
+    

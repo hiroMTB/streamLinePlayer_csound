@@ -116,6 +116,10 @@ void ofApp::loadData(string fileName){
     range.insert({"vel:123", range["vel:0"] + range["vel:1"] + range["vel:2"]});
     range.insert({"Rotation", ofRange(rotMin, rotMax)});
     
+    glm::vec3 firstPoint( pos0[0], pos2[0], -pos1[0]);
+    
+    firstLineId.push_back(mesh.size());
+    
     for(int i=0; i<pos0.size(); i++){
         
         if(time[i] == 0){
@@ -128,24 +132,19 @@ void ofApp::loadData(string fileName){
             rotation.push_back(ofPolyline());
         }
         
-        glm::vec3 pos(pos0[i], -pos1[i], pos2[i]);
-        glm::vec3 vel(vel0[i], vel1[i], vel2[i]);
+        glm::vec3 pos(pos0[i], pos2[i],  -pos1[i]);
+        glm::vec3 vel(vel0[i], vel2[i],  -vel1[i]);
+        pos -= firstPoint;
+        pos *= 40.0f;
         
-        pos.x -= range["Points:0"].center();
-        pos.y -= range["Points:1"].center();
-        pos.z -= range["Points:2"].center();
+        float ang = firstLineId.size() / 6.0 * TWO_PI;
+        pos = glm::rotateZ(pos, ang);
         
-        float biggestSpan = MAX(range["Points:0"].span(), range["Points:1"].span() );
-        biggestSpan = MAX(biggestSpan, range["Points:2"].span());
-        pos /= biggestSpan;
-        pos *= 1000.0f;
-        
-        float m = mag[i];
-        float cRate = m * 0.004;
+        float m = ofMap(mag[i], range["mag"].min, range["mag"].max, 0.0, 1.0);
         ofFloatColor red(1,0,0);
         ofFloatColor blue(0,0,1);
         ofFloatColor col;
-        col =  red*cRate + blue*(1.0-cRate);
+        col =  red*m + blue*(1.0-m);
         col.a = 0.2;
         
         mesh.back().addVertex(pos);
@@ -173,7 +172,7 @@ void ofApp::loadData(string fileName){
     vector<ofPolyline>::iterator rotit  = rotation.begin();
 
     int numDeleted = 0;
-    for(int i=0; meshit!=mesh.end(); i++, meshit++, polyit++, magit++){
+    for(int i=0; meshit!=mesh.end(); i++, meshit++, polyit++, magit++, rotit++){
         
         int num = meshit->getNumVertices();
         float length = polyit->getLengthAtIndex(polyit->getPerimeter());

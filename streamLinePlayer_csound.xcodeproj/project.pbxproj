@@ -83,9 +83,15 @@
 		456144621FE0846800683A1C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		456144641FE0847000683A1C /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		456144661FE0847500683A1C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		45775F7D1FE4B91A00CB35E3 /* final_6ch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = final_6ch; path = bin/data/csv/final_6ch; sourceTree = "<group>"; };
+		45775F7E1FE4B92500CB35E3 /* final_6ch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = final_6ch; path = bin/data/csv/final_6ch; sourceTree = "<group>"; };
+		45775F831FE4C53500CB35E3 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = bin/data; sourceTree = "<group>"; };
+		45775FAA1FE4CA2C00CB35E3 /* streamLinePlayer_csound copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "streamLinePlayer_csound copy-Info.plist"; path = "/Users/hiro/Desktop/official-openFrameworks/apps/vtk/streamLinePlayer_csound/streamLinePlayer_csound copy-Info.plist"; sourceTree = "<absolute>"; };
+		45775FD11FE4CA3C00CB35E3 /* streamLinePlayer_csound_2 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "streamLinePlayer_csound_2 copy-Info.plist"; path = "/Users/hiro/Desktop/official-openFrameworks/apps/vtk/streamLinePlayer_csound/streamLinePlayer_csound_2 copy-Info.plist"; sourceTree = "<absolute>"; };
+		45775FF81FE4CA4300CB35E3 /* streamLinePlayer_csound_3 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "streamLinePlayer_csound_3 copy-Info.plist"; path = "/Users/hiro/Desktop/official-openFrameworks/apps/vtk/streamLinePlayer_csound/streamLinePlayer_csound_3 copy-Info.plist"; sourceTree = "<absolute>"; };
+		4579D8071FE4FD6F00EA7EE6 /* ReaperControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReaperControl.h; sourceTree = "<group>"; };
 		45A36A941FE32B8700B00A02 /* CsoundOp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CsoundOp.h; sourceTree = "<group>"; };
 		45A36A961FE32D5100B00A02 /* CsoundLib64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CsoundLib64.framework; path = ../../../../../../../Library/Frameworks/CsoundLib64.framework; sourceTree = "<group>"; };
-		45A36A981FE3430500B00A02 /* orc_src.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = orc_src.txt; path = bin/data/orc_src.txt; sourceTree = "<group>"; };
 		470CF04F1D4D1B38D5AA1797 /* ofxRtMidiOut.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxRtMidiOut.h; path = ../../../addons/ofxMidi/src/desktop/ofxRtMidiOut.h; sourceTree = SOURCE_ROOT; };
 		48974F980F51769171D0B2F5 /* IpEndpointName.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IpEndpointName.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.h; sourceTree = SOURCE_ROOT; };
 		4E95FB446A9C9C6F0DE12D75 /* OscPrintReceivedElements.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscPrintReceivedElements.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.h; sourceTree = SOURCE_ROOT; };
@@ -122,7 +128,7 @@
 		E16BB73D19DD0713FDCC7986 /* ofxMidiTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxMidiTypes.h; path = ../../../addons/ofxMidi/src/ofxMidiTypes.h; sourceTree = SOURCE_ROOT; };
 		E238CCDE032640E0FEBFAD82 /* ofxMidi.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxMidi.cpp; path = ../../../addons/ofxMidi/src/ofxMidi.cpp; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
-		E4B69B5B0A3A1756003C02F2 /* streamLinePlayer_csoundDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = streamLinePlayer_csoundDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69B5B0A3A1756003C02F2 /* streamLinePlayer_csoundDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = streamLinePlayer_csoundDebug.app; path = st1Debug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
@@ -197,6 +203,8 @@
 		4561445D1FE0843F00683A1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45775F7E1FE4B92500CB35E3 /* final_6ch */,
+				45775F7D1FE4B91A00CB35E3 /* final_6ch */,
 				45A36A961FE32D5100B00A02 /* CsoundLib64.framework */,
 				456144661FE0847500683A1C /* Cocoa.framework */,
 				456144641FE0847000683A1C /* CoreAudio.framework */,
@@ -346,13 +354,16 @@
 			children = (
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
-				45A36A981FE3430500B00A02 /* orc_src.txt */,
+				45775F831FE4C53500CB35E3 /* data */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				6948EE371B920CB800B5AC1A /* local_addons */,
 				E4B69B5B0A3A1756003C02F2 /* streamLinePlayer_csoundDebug.app */,
 				4561445D1FE0843F00683A1C /* Frameworks */,
+				45775FAA1FE4CA2C00CB35E3 /* streamLinePlayer_csound copy-Info.plist */,
+				45775FD11FE4CA3C00CB35E3 /* streamLinePlayer_csound_2 copy-Info.plist */,
+				45775FF81FE4CA4300CB35E3 /* streamLinePlayer_csound_3 copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -364,6 +375,7 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				74F2C8A240DB2766FB50596E /* ofApp_loadData.impl */,
 				45A36A941FE32B8700B00A02 /* CsoundOp.h */,
+				4579D8071FE4FD6F00EA7EE6 /* ReaperControl.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -403,9 +415,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E4B69B5A0A3A1756003C02F2 /* streamLinePlayer_csound */ = {
+		E4B69B5A0A3A1756003C02F2 /* st1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "streamLinePlayer_csound" */;
+			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "st1" */;
 			buildPhases = (
 				E4B69B580A3A1756003C02F2 /* Sources */,
 				E4B69B590A3A1756003C02F2 /* Frameworks */,
@@ -418,7 +430,7 @@
 			dependencies = (
 				E4EEB9AC138B136A00A80321 /* PBXTargetDependency */,
 			);
-			name = streamLinePlayer_csound;
+			name = st1;
 			productName = myOFApp;
 			productReference = E4B69B5B0A3A1756003C02F2 /* streamLinePlayer_csoundDebug.app */;
 			productType = "com.apple.product-type.application";
@@ -452,7 +464,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				E4B69B5A0A3A1756003C02F2 /* streamLinePlayer_csound */,
+				E4B69B5A0A3A1756003C02F2 /* st1 */,
 			);
 		};
 /* End PBXProject section */
@@ -841,7 +853,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "streamLinePlayer_csound" */ = {
+		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "st1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B600A3A1757003C02F2 /* Debug */,

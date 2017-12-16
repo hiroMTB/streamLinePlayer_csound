@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofRange.h"
+#include "ReaperControl.h"
 
 class Csound;
 
@@ -34,7 +35,6 @@ public:
     int sr = 48000;    // sampling rate
     int ksmps = 16;    // control rate
     
-    float renderDuration; // sec
 
     vector<ofVboMesh> mesh;
     vector<ofPolyline> poly;
@@ -51,4 +51,17 @@ public:
     Csound * csound;
 
     int res;
+    
+    vector<ofRange> freqRange;
+    
+    static int freqMode;
+    static float renderDuration; // sec
+    
+    
+    ReaperControl reaper;
+    
+    vector<int> firstLineId;
+    
+    double maxLen = -1;
+    
 };

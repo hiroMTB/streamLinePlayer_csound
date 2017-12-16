@@ -2,6 +2,9 @@
 #include "ofApp_loadData.impl"
 #include "CsoundOp.h"
 
+int ofApp::freqMode = 1;
+float ofApp::renderDuration = 30;
+
 void ofApp::setup(){
     
     ofSetLogLevel(OF_LOG_VERBOSE);
@@ -18,30 +21,50 @@ void ofApp::setup(){
     // csv data load
     mesh.push_back(ofVboMesh());
     mesh.back().setMode(OF_PRIMITIVE_LINE_STRIP);
-    
     poly.push_back(ofPolyline());
     magnitude.push_back(ofPolyline());
+    rotation.push_back(ofPolyline());
+
     points.setMode(OF_PRIMITIVE_POINTS);
     prmLine.setMode(OF_PRIMITIVE_LINES);
-    loadData("musical_cylinder_04_strm_01.csv");
     
-    res = 3;
+    for(int i=0; i<6;i++){
+        loadData("csv/final_6ch/c" +ofToString(i+1) + ".csv");
+    }
+
+    maxLen = -1;
+    for(int i=0; i<poly.size(); i++){
+        float len = poly[i].getPerimeter();
+        maxLen = MAX(maxLen, len);
+    }
+    
+    freqRange = {
+        ofRange(  10,   80),
+        ofRange( 80,   640),
+        ofRange( 640,  1280),
+        ofRange(1280,  2560),
+        ofRange(2560,  5120),
+        ofRange(5120, 20480)
+    };
+    
+    sr = 48000*2;   // sampling rate
+    ksmps = 16;     // control rate
+    res = 2;
     numOcs = poly.size() / res;
     
-    renderDuration = 30; // se
-    setupCsound();
-    setupOrc();
-    setupSco();
-    startCsound();
-    
-    ofExit();
+//    setupCsound();
+//    setupOrc();
+//    setupSco();
+//    startCsound();
+//    ofExit();
 }
 
 void ofApp::setupCsound(){
     
     csound = new Csound();
     
-    string renderFilePath = ofToDataPath(ofGetTimestampString() + ".wav", true);
+    //string renderFilePath = ofToDataPath(ofGetTimestampString() + ".wav", true);
+    string renderFilePath = ofToDataPath("strm_"+ofToString(freqMode) + ".wav", true);
     string rnd = "-o" + renderFilePath;
     csound->SetOption( const_cast<char*>( rnd.c_str() ) );
     csound->SetOption( (char*)"-W" );   // Wav
@@ -53,8 +76,7 @@ void ofApp::setupOrc(){
 
     cout << "making Orchestra file for " << numOcs << " Sine waves" << endl;
     
-    sr = 48000;    // sampling rate
-    ksmps = 16;    // control rate
+
     int nChn = 2;
     int zdbfs = 1;
     string settings = mt::op_setting(sr, ksmps, nChn,zdbfs);
@@ -87,18 +109,10 @@ void ofApp::setupOrc(){
         int id = i+1;
         int octave = floor(i/8);
         double per = (float)i/numOcs;
-        double rate = 0.2 * 0.25;
+        double rate = 0.03;
         double freq;
         
-        if(i%4==0){
-            freq = pow((double)2, (double)(i-numOcs)*rate) * 22000.0 + 2;
-        }else if(i%4==1){
-            freq = pow((double)7, (double)(i-numOcs)*rate) * 22000.0 + 2;
-        }else if(i%4==2){
-            freq = pow((double)15, (double)(i-numOcs)*rate) * 22000.0 + 2;
-        }else if(i%4==3){
-            freq = pow((double)23, (double)(i-numOcs)*rate) * 22000.0 + 2;
-        }
+        freq = pow((double)2, (double)(i-numOcs)*rate) * freqRange[freqMode-1].max + freqRange[freqMode-1].min;
         
         string freqs = ofToString(freq, 20);
         string aOsc = mt::op_orc("aOsc"+to_string(id), "poscil", "kamp"+to_string(id), freqs, "giSine" );
@@ -136,7 +150,7 @@ void ofApp::setupOrc(){
     
     
     int r1 = csound->CompileOrc( orc.c_str() );
-    saveString( orc, ofToDataPath("orc_src.txt", true) );
+    saveString( orc, ofToDataPath("orc_src_"+ofToString(freqMode)+".txt", true) );
     
     if( r1 ==0 ){
         cout << "Orcestra file compile OK\n";
@@ -161,7 +175,6 @@ void ofApp::setupSco(){
 
 void ofApp::startCsound(){
     
-    
     csound->Start();
     
     int loop = 0;
@@ -174,15 +187,10 @@ void ofApp::startCsound(){
     
     double percent = 0;
     
-    bool init = false;
     int totalKFrame = sr * renderDuration / ksmps;
     int currentFrame = 0;
     
-    double maxLen = -1;
-    for(int i=0; i<poly.size(); i++){
-        float len = poly[i].getPerimeter();
-        maxLen = MAX(maxLen, len);
-    }
+    
     double stepLen = maxLen / totalKFrame;
     double currentLen = 0;
     
@@ -200,21 +208,20 @@ void ofApp::startCsound(){
             
             double amp;
             if(currentLen>=poly[f*res].getPerimeter()){
-                double amp =0;
+                amp =0;
             }else{
                 glm::vec3 p = poly[f*res].getPointAtLength(currentLen);
                 double thisPercent = currentLen / poly[f*res].getPerimeter();
                 glm::vec3 m = magnitude[f*res].getPointAtPercent(thisPercent);
-                amp = m.y * 0.000002;
+                amp = m.y * 0.04;
             }
             
-            if(init) amp = amp*0.0001 + prevAmp[f]*0.9999;
+            amp = amp*0.0001 + prevAmp[f]*0.9999;
             *camp[f] = amp;
             prevAmp[f] = amp;
         }
         
         currentLen += stepLen;
-        init = true;
     }
 }
 
@@ -236,7 +243,8 @@ void ofApp::update(){
         ofPolyline & m = magnitude[i];
         ofPolyline & r = rotation[i];
         
-        glm::vec3 v = p.getPointAtPercent(percent);
+        double currentLen = maxLen * percent;
+        glm::vec3 v = p.getPointAtLength(currentLen);
         glm::vec3 mag = m.getPointAtPercent(percent);
         glm::vec3 rot = r.getPointAtPercent(percent);
         
@@ -260,41 +268,6 @@ void ofApp::update(){
             prmLine.addColor(ofFloatColor(col));
         }
     }
-    
-    // sender
-    // Midi Ch      : 1 ~ 16
-    int maxMidiCh = 16;
-    int dataWidth = numPoly/maxMidiCh;
-
-    vector<vector<int>> prms(maxMidiCh, vector<int>(10));
-
-    // check intersect & send noteOn
-    for(int i=0; i<maxMidiCh; i++){
-        
-        vector<int> & prm = prms[i];
-        
-        int lineId = i * dataWidth;
-
-        // Note On
-        ofPolyline & p = poly[lineId];
-        ofPolyline & m = magnitude[lineId];
-        glm::vec3 v = p.getPointAtPercent(percent);
-        glm::vec3 mag = m.getPointAtPercent(percent);
-        
-        prm[0] = 1;
-        
-        for(int j=0; j<prm.size(); j++){
-            int prmId = j+1;
-            
-            glm::vec3 axis(0,1,0);
-            glm::vec3 vn = glm::normalize(v);
-            float angle = glm::angle(vn, axis);
-             float val = ofMap(angle, -PI, PI, 0, 127);
-            prm[prmId] = val;
-        }
-    }
-    
-
 }
 
 void ofApp::draw(){
@@ -325,7 +298,19 @@ void ofApp::draw(){
         glPointSize(3);
         points.draw();
 
+        int totalFrame = ofGetTargetFrameRate() * renderDuration;
+        float percent = (float)frame/totalFrame;
+        double currentLen = maxLen * percent;
+        
+        for(int i=0; i<firstLineId.size(); i++){
+            glm::vec3 v = poly[firstLineId[i]+600].getPointAtLength(currentLen);
+            
+            ofFill();
+            ofSetColor(0, 255, 0);
+            ofDrawSphere(v, 2);
+        }
 
+        
     }cam.end();
 }
 
